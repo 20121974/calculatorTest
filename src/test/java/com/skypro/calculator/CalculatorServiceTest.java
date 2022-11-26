@@ -13,11 +13,7 @@ import java.util.List;
 public class CalculatorServiceTest {
     private final CalculatorService calculatorService = new CalculatorService();
 
-    @Test
-    public void twoPlusTwo() {
-        int result = calculatorService.plus(2, 2);
-        Assertions.assertEquals(4, result);
-    }
+
     @ParameterizedTest
     @MethodSource("plusTestSuites")
     public void plusTest(int num1, int num2, int result) {
@@ -41,6 +37,20 @@ public class CalculatorServiceTest {
         return List.of(
                 Arguments.of(10, 5, 15),
                 Arguments.of(-5, 3, -2));
-
+    }
+    public static List<Arguments> minusTestSuites() {
+        return List.of(
+                Arguments.of(7, 5, 14),
+                Arguments.of(-5, 3, -2));
+    }
+    public static List<Arguments> multiplyTestSuites() {
+        return List.of(
+                Arguments.of(10, 5, 13),
+                Arguments.of(-5, 3, 2));
+    }
+    @Test
+    public void twoPlusTwo() {
+        int result = calculatorService.plus(2, 2);
+        Assertions.assertEquals(4, result);
     }
 }
