@@ -19,19 +19,23 @@ public class CalculatorServiceTest {
     public void plusTest(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.plus(num1, num2));
     }
+    @MethodSource("minusTestSuites")
+    public void minusTest(int num1, int num2, int result) {
+        Assertions.assertEquals(result, calculatorService.plus(num1, num2));
+    }
 
     @MethodSource("multiplyTestSuites")
-    public void plusTest(int num1, int num2, int result) {
+    public void multiplyTest(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.plus(num1, num2));
     }
     @MethodSource("divideTestSuites")
-    public void plusTest(int num1, int num2, int result) {
+    public void divideTest(int num1, int num2, int result) {
         Assertions.assertEquals(result, calculatorService.plus(num1, num2));
     }
 
     @Test
     public void divideByZeroTrowsException() {
-        Assertions.assertThatThrownBy(IllegalNumberException.class,() ->{calculatorService.divide(1,0)};
+        Assertions.assertThatThrownBy(IllegalNumberException.class,() ->{calculatorService.divide(1,0)});
     }
     public static List<Arguments> plusTestSuites() {
         return List.of(
