@@ -2,7 +2,8 @@ package com.skypro.calculator;
 
 import com.skypro.calculator.exception.IllegalNumberException;
 import com.skypro.calculator.servis.CalculatorService;
-import org.assertj.core.api.Assertions;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -35,7 +36,7 @@ public class CalculatorServiceTest {
 
     @Test
     public void divideByZeroTrowsException() {
-        Assertions.assertThatThrownBy(IllegalNumberException.class,() ->{calculatorService.divide(1,0)});
+        Assertions.assertThrows(IllegalNumberException.class,() ->{calculatorService.divide(1,0);});
     }
     public static List<Arguments> plusTestSuites() {
         return List.of(
